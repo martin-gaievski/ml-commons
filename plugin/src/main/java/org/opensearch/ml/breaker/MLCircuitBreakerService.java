@@ -74,8 +74,9 @@ public class MLCircuitBreakerService {
      */
     public MLCircuitBreakerService init(Path path) {
         // Register memory circuit breaker
-        registerBreaker(BreakerName.MEMORY, new MemoryCircuitBreaker(this.settings, this.clusterService, this.jvmService));
-        log.info("Registered ML memory breaker.");
+        //registerBreaker(BreakerName.MEMORY, new MemoryCircuitBreaker(this.settings, this.clusterService, this.jvmService));
+        //log.info("Registered ML memory breaker.");
+        log.info("Skip registered ML memory breaker.");
         registerBreaker(BreakerName.DISK, new DiskCircuitBreaker(path.toString()));
         log.info("Registered ML disk breaker.");
         // Register native memory circuit breaker, disabling due to unstability.
